@@ -1,4 +1,5 @@
 const header = document.getElementById('site-header');
+const title = document.querySelector('.title-container');
 const btnMode = document.querySelector('.btn-mode');
 const linkNav = document.querySelectorAll('.link-nav');
 const bodyPage = document.body;
@@ -23,10 +24,12 @@ window.addEventListener('scroll', function () {
 
     if (window.scrollY > 100) {
         header.classList.add('scrolled');
+        title.classList.add('scrolled');
         btnMode.classList.add('scrolled');
         linkNav.forEach(link => link.classList.add('scrolled'));
     } else {
         header.classList.remove('scrolled');
+        title.classList.remove('scrolled');
         btnMode.classList.remove('scrolled');
         linkNav.forEach(link => link.classList.remove('scrolled'));
     }

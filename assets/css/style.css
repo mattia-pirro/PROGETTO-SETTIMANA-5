@@ -53,7 +53,6 @@ a {
 /* Header */
 
 #site-header {
-  padding: 12px 36px;
   width: 100%;
   position: sticky;
   top: 0;
@@ -66,8 +65,19 @@ a {
 }
 
 .header {
+  padding: 20px 36px;
   background-color: #ffffff;
   color: hsl(150, 60%, 30%);
+  transition:
+    background-color 300ms ease-out,
+    color 300ms ease-out,
+    padding 300ms ease-out;
+}
+
+.header.scrolled {
+  background-color: hsl(150, 60%, 30%);
+  color: #ffffff;
+  padding: 12px 36px;
 }
 
 .header-content {
@@ -87,6 +97,12 @@ a {
   font-size: 28px;
   font-weight: bold;
   width: 100%;
+  transition:
+    font-size 300ms ease-out;
+}
+
+.title-container.scrolled {
+  font-size: 20px;
 }
 
 .title-container i {
@@ -132,11 +148,6 @@ a {
 .btn-mode-container .btn-mode:hover {
   background-color: hsl(150, 60%, 95%);
   color: hsl(150, 60%, 30%);
-}
-
-.header.scrolled {
-  background-color: hsl(150, 60%, 30%);
-  color: #ffffff;
 }
 
 #nav-container .link-nav.scrolled {
@@ -267,6 +278,39 @@ h2 {
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  animation: fade-in 500ms ease-out;
+  transition:
+    box-shadow 200ms ease-out,
+    transform 200ms ease-out;
+}
+
+.img-container:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.lavori-container .img-container:nth-of-type(1) {
+  animation-delay: 80ms;
+}
+
+.lavori-container .img-container:nth-of-type(2) {
+  animation-delay: 160ms;
+}
+
+.lavori-container .img-container:nth-of-type(3) {
+  animation-delay: 240ms;
+}
+
+.lavori-container .img-container:nth-of-type(4) {
+  animation-delay: 320ms;
+}
+
+.lavori-container .img-container:nth-of-type(5) {
+  animation-delay: 400ms;
+}
+
+.lavori-container .img-container:nth-of-type(6) {
+  animation-delay: 480ms;
 }
 
 .img-container img {
@@ -495,6 +539,10 @@ h2 {
   }
 }
 
+#recensioni {
+  overflow: hidden;
+}
+
 .recensioni-grid {
   display: flex;
   flex-direction: row;
@@ -545,6 +593,11 @@ h2 {
 
 .recensioni-grid .recensioni-container:nth-child(6) {
   animation-delay: 30s;
+}
+
+.recensioni-grid:hover .recensioni-container {
+  overflow-anchor: none;
+  animation-play-state: paused;
 }
 
 .recensioni-container .recensioni-user-image {
@@ -716,6 +769,7 @@ h2 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch;
     width: 90%;
   }
 
@@ -728,7 +782,7 @@ h2 {
   .footer-content {
     flex-direction: row;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: center;
   }
 
   .title-container-footer {
@@ -736,7 +790,7 @@ h2 {
     max-width: 150px;
     text-align: left;
   }
-  
+
   .recensioni-container {
     width: 200px;
     animation: carosello 30s linear infinite;
@@ -779,7 +833,21 @@ h2 {
 
   .recensioni-container {
     width: 240px;
-    animation: carosello 30s linear infinite;
+  }
+}
+
+/* 1280px */
+
+@media screen and (min-width: 1280px) {
+
+  .recensioni-container {
+    width: 360px;
+    padding: 35px 55px;
+  }
+
+  .recensioni-info p,
+  .recensioni-user-name p {
+    font-size: 14px;
   }
 }
 
