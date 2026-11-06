@@ -17,11 +17,11 @@
         <a href="index.html"><i class="fa-solid fa-seedling"></i>Bloom</a>
       </div>
       <div id="nav-container">
-        <nav>
+        <nav class="zona-nav">
           <a class="link-nav" href="#servizi">Servizi</a>
           <a class="link-nav" href="#lavori">Lavori</a>
           <a class="link-nav" href="#team">Team</a>
-          <a class="link-nav" href="#">Contatti</a>
+          <a class="link-nav" id="link-apri-contatti">Contatti</a>
         </nav>
         <div class="btn-mode-container">
           <button class="btn-mode"><i class="fa-solid fa-moon"></i></button>
@@ -33,7 +33,7 @@
   <section class="hero">
     <h1>Trasformiamo idee in design</h1>
     <p>Siamo uno studio creativo, Identità visiva, web e motion graphic per chi vuole farsi notare.</p>
-    <button>Richiedi preventivo</button>
+    <button id="apri-contatti">Richiedi preventivo</button>
   </section>
 
   <main>
@@ -196,6 +196,37 @@
     </section>
 
   </main>
+
+  <div id="overlay-contatti" class="overlay" hidden>
+    <div class="modal">
+      <button type="button" class="close" id="chiudi-contatti">×</button>
+      <form action="#">
+        <h2>Richiedi un preventivo</h2>
+        <p>Raccontaci il tuo progetto, ti risponderemo in 48 ore.</p>
+        <label for="nome">Nome</label>
+        <br />
+        <input type="text" id="nome" name="nome" required>
+        <br />
+        <label for="email">Email</label>
+        <br />
+        <input type="email" id="email" name="email" required>
+        <br />
+        <label for="menu">Servizio</label>
+        <br />
+        <select id="menu" name="menu" required>
+          <option value="identita-visiva">Identità visiva</option>
+          <option value="web-design">Web design</option>
+          <option value="motion-graphic">Motion graphic</option>
+        </select>
+        <br />
+        <label for="messaggio">Messaggio</label>
+        <br />
+        <textarea id="messaggio" name="messaggio" rows="5"></textarea>
+        <br />
+        <button type="submit">Invia richiesta</button>
+      </form>
+    </div>
+  </div>
 
   <footer id="site-footer">
     <div class="footer-content">
