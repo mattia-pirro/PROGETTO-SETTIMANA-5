@@ -602,7 +602,14 @@ h2 {
 }
 
 .footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   max-width: 980px;
+  width: 100%;
+  gap: 24px;
 }
 
 .title-container-footer {
@@ -611,6 +618,7 @@ h2 {
   justify-content: center;
   align-items: center;
   align-content: center;
+  gap: 8px;
 }
 
 .title-container-footer p:nth-of-type(1) {
@@ -622,7 +630,7 @@ h2 {
 .title-container-footer p:nth-of-type(2) {
   font-size: 16px;
   color: #aaafb7;
-  margin-top: 8px;
+  margin: 0;
 }
 
 .title-container-footer i {
@@ -630,7 +638,6 @@ h2 {
 }
 
 #icons-container {
-  margin: 10px 0;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -673,10 +680,17 @@ h2 {
 }
 
 .copyright {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.copyright p {
   font-size: 16px;
-  margin-top: 24px;
   color: #aaafb7;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 /* 768px */
@@ -689,12 +703,10 @@ h2 {
   }
 
   .title-container {
-    width: auto;
     justify-content: flex-start;
   }
 
   #nav-container {
-    width: auto;
     justify-content: flex-end;
   }
 
@@ -711,7 +723,47 @@ h2 {
   .servizi-container,
   .team-container {
     flex: 1 1 280px;
-    width: 45%;
+  }
+
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  .title-container-footer {
+    align-items: flex-start;
+    max-width: 150px;
+    text-align: left;
+  }
+  
+  .recensioni-container {
+    width: 200px;
+    animation: carosello 30s linear infinite;
+  }
+
+  .recensioni-grid .recensioni-container:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .recensioni-grid .recensioni-container:nth-child(2) {
+    animation-delay: 3s;
+  }
+
+  .recensioni-grid .recensioni-container:nth-child(3) {
+    animation-delay: 6s;
+  }
+
+  .recensioni-grid .recensioni-container:nth-child(4) {
+    animation-delay: 9s;
+  }
+
+  .recensioni-grid .recensioni-container:nth-child(5) {
+    animation-delay: 12s;
+  }
+
+  .recensioni-grid .recensioni-container:nth-child(6) {
+    animation-delay: 15s;
   }
 }
 
@@ -722,6 +774,24 @@ h2 {
   .img-container,
   .servizi-container,
   .team-container {
-    width: 15%;
+    flex: 1 1 240px;
+  }
+
+  .recensioni-container {
+    width: 240px;
+    animation: carosello 30s linear infinite;
+  }
+}
+
+/* prefers-reduced-motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
