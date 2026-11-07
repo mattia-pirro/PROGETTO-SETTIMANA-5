@@ -8,6 +8,8 @@ const preventivo = document.getElementById('apri-contatti');
 const linkPreventivo = document.getElementById('link-apri-contatti');
 const close = document.getElementById('chiudi-contatti');
 const formContatti = document.getElementById('form-contatti');
+const recensioni = document.querySelectorAll('.recensioni-container');
+
 
 btnMode.addEventListener('click', () => {
     const icon = btnMode.querySelector('i');
@@ -22,55 +24,54 @@ btnMode.addEventListener('click', () => {
     }
 });
 
-window.addEventListener('scroll', function () {
-    if (bodyPage.classList.contains('dark')) {
-        if (window.scrollY > 100) {
-            title.classList.add('scrolled');
-            btnMode.classList.add('scrolled');
-            linkNav.forEach(link => link.classList.add('scrolled'));
-        } else {
-            title.classList.remove('scrolled');
-            btnMode.classList.remove('scrolled');
-            linkNav.forEach(link => link.classList.remove('scrolled'));
-        }
-    }
+function aggiornaScroll() {
+    const scrolled = window.scrollY > 100;
+    header.classList.toggle('scrolled', scrolled);
+    title.classList.toggle('scrolled', scrolled);
+    btnMode.classList.toggle('scrolled', scrolled);
+    linkNav.forEach(link => link.classList.toggle('scrolled', scrolled));
+}
 
-    if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-        title.classList.add('scrolled');
-        btnMode.classList.add('scrolled');
-        linkNav.forEach(link => link.classList.add('scrolled'));
-    } else {
-        header.classList.remove('scrolled');
-        title.classList.remove('scrolled');
-        btnMode.classList.remove('scrolled');
-        linkNav.forEach(link => link.classList.remove('scrolled'));
-    }
-});
+window.addEventListener('scroll', aggiornaScroll);
 
-preventivo.addEventListener('click', function () {
-    overlay.removeAttribute('hidden');
-    document.body.style.overflow = 'hidden';
-});
+bodyPage.classList.add('no-transition');
+aggiornaScroll();
 
-linkPreventivo.addEventListener('click', function () {
-    overlay.removeAttribute('hidden');
-    document.body.style.overflow = 'hidden';
-});
-
-close.addEventListener('click', function () {
-    overlay.classList.add('closing');
+window.addEventListener('load', () => {
+    aggiornaScroll();
     setTimeout(() => {
-        overlay.setAttribute('hidden', '');
-        document.body.style.overflow = '';
-        overlay.classList.remove('closing');
-    }, 1400);
+        bodyPage.classList.remove('no-transition')
+    }, 100);
 });
+
+function apriContatti() {
+    overlay.removeAttribute('hidden');
+    recensioni.forEach(card => card.style.animationPlayState = 'paused');
+    document.documentElement.style.overflow = 'hidden';
+}
+
+preventivo.addEventListener('click', apriContatti);
+linkPreventivo.addEventListener('click', apriContatti);
+
+function chiudiContatti() {
+    if (overlay.classList.contains('closing')) {
+        return;
+    } else {
+        overlay.classList.add('closing');
+        setTimeout(() => {
+            overlay.setAttribute('hidden', '');
+            overlay.classList.remove('closing');
+            recensioni.forEach(card => card.style.animationPlayState = '');
+            document.documentElement.style.overflow = '';
+        }, 1400);
+    }
+}
+
+close.addEventListener('click', chiudiContatti);
 
 overlay.addEventListener('click', (event) => {
     if (event.target === overlay) {
-        overlay.setAttribute('hidden', '');
-        document.body.style.overflow = '';
+        chiudiContatti();
     }
 });
 

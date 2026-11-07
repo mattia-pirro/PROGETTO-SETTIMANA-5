@@ -12,6 +12,7 @@
 html {
   scroll-padding-top: 120px;
   overflow-x: hidden;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -37,6 +38,13 @@ body.dark .team-container,
 body.dark .recensioni-container {
   color: #f0f0f0;
   background-color: #1f1f1f;
+}
+
+body.no-transition .header,
+body.no-transition .title-container,
+body.no-transition .link-nav,
+body.no-transition .btn-mode {
+  transition: none !important;
 }
 
 img {
@@ -67,12 +75,28 @@ a {
   padding: 20px 36px;
   background-color: #ffffff;
   color: #1a1a1a;
+  transition:
+    padding 300ms ease-out;
 }
 
 .header.scrolled {
+  padding: 12px 36px;
+}
+
+body:not(.dark) .header {
+  padding: 20px 36px;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  transition:
+    padding 300ms ease-out,
+    background-color 300ms ease-out,
+    color 300ms ease-out;
+}
+
+body:not(.dark) .header.scrolled {
+  padding: 12px 36px;
   background-color: hsl(150, 60%, 30%);
   color: #ffffff;
-  padding: 12px 36px;
 }
 
 .header-content {
@@ -126,6 +150,8 @@ a {
 
 #nav-container .link-nav {
   padding: 6px 12px;
+  transition:
+    color 300ms ease-out,
 }
 
 .btn-mode-container .btn-mode {
@@ -140,6 +166,10 @@ a {
   cursor: pointer;
   background-color: #ffffff;
   color: #1a1a1a;
+  transition:
+    color 300ms ease-out,
+    background-color 300ms ease-out,
+    border-color 300ms ease-out;
 }
 
 #nav-container .link-nav:hover,
@@ -491,12 +521,40 @@ h2 {
 
 /* Recensioni */
 
+@keyframes carosello {
+  0% {
+    transform: translateX(150vw);
+  }
+
+  20% {
+    transform: translateX(90vw);
+  }
+
+  40% {
+    transform: translateX(30vw);
+  }
+
+  60% {
+    transform: translateX(-30vw);
+  }
+
+  80% {
+    transform: translateX(-90vw);
+  }
+
+  100% {
+    transform: translateX(-150vw);
+  }
+}
+
 #recensioni {
   overflow: hidden;
+  width: 100%;
 }
 
 .recensioni-grid {
   position: relative;
+  overflow-anchor: none;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -516,11 +574,9 @@ h2 {
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  padding: 28px 30px;
+  padding: 20px 30px;
   width: 225px;
   position: absolute;
-  right: 0;
-  opacity: 0%;
   animation: carosello 36s linear infinite;
 }
 
@@ -529,27 +585,26 @@ h2 {
 }
 
 .recensioni-grid .recensioni-container:nth-child(2) {
-  animation-delay: 6s;
+  animation-delay: -6s;
 }
 
 .recensioni-grid .recensioni-container:nth-child(3) {
-  animation-delay: 12s;
+  animation-delay: -12s;
 }
 
 .recensioni-grid .recensioni-container:nth-child(4) {
-  animation-delay: 18s;
+  animation-delay: -18s;
 }
 
 .recensioni-grid .recensioni-container:nth-child(5) {
-  animation-delay: 24s;
+  animation-delay: -24s;
 }
 
 .recensioni-grid .recensioni-container:nth-child(6) {
-  animation-delay: 30s;
+  animation-delay: -30s;
 }
 
-.recensioni-grid:hover .recensioni-container {
-  overflow-anchor: none;
+.recensioni-grid:has(.recensioni-container:hover) .recensioni-container {
   animation-play-state: paused;
 }
 
@@ -931,23 +986,23 @@ form button:hover {
   }
 
   .recensioni-grid .recensioni-container:nth-child(2) {
-    animation-delay: 3s;
+    animation-delay: -3s;
   }
 
   .recensioni-grid .recensioni-container:nth-child(3) {
-    animation-delay: 6s;
+    animation-delay: -6s;
   }
 
   .recensioni-grid .recensioni-container:nth-child(4) {
-    animation-delay: 9s;
+    animation-delay: -9s;
   }
 
   .recensioni-grid .recensioni-container:nth-child(5) {
-    animation-delay: 12s;
+    animation-delay: -12s;
   }
 
   .recensioni-grid .recensioni-container:nth-child(6) {
-    animation-delay: 15s;
+    animation-delay: -15s;
   }
 }
 
@@ -970,14 +1025,18 @@ form button:hover {
 
 @media screen and (min-width: 1280px) {
 
+  #recensioni {
+    max-width: none;
+  }
+
   .recensioni-container {
-    width: 360px;
-    padding: 35px 55px;
+    width: 350px;
+    padding: 20px 50px;
   }
 
   .recensioni-info p,
   .recensioni-user-name p {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -991,5 +1050,16 @@ form button:hover {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .recensioni-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .recensioni-container {
+    animation: none !important;
+    position: static;
+    opacity: 1;
   }
 }
