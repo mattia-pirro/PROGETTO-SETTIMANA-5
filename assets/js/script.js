@@ -7,7 +7,7 @@ const overlay = document.getElementById('overlay-contatti');
 const preventivo = document.getElementById('apri-contatti');
 const linkPreventivo = document.getElementById('link-apri-contatti');
 const close = document.getElementById('chiudi-contatti');
-const formContatti = document.querySelector('.modal form');
+const formContatti = document.getElementById('form-contatti');
 
 btnMode.addEventListener('click', () => {
     const icon = btnMode.querySelector('i');
@@ -23,8 +23,16 @@ btnMode.addEventListener('click', () => {
 });
 
 window.addEventListener('scroll', function () {
-    if (bodyPage.classList.contains('dark') && window.scrollY > 100) {
-        return;
+    if (bodyPage.classList.contains('dark')) {
+        if (window.scrollY > 100) {
+            title.classList.add('scrolled');
+            btnMode.classList.add('scrolled');
+            linkNav.forEach(link => link.classList.add('scrolled'));
+        } else {
+            title.classList.remove('scrolled');
+            btnMode.classList.remove('scrolled');
+            linkNav.forEach(link => link.classList.remove('scrolled'));
+        }
     }
 
     if (window.scrollY > 100) {
@@ -66,8 +74,7 @@ overlay.addEventListener('click', (event) => {
     }
 });
 
-
-formContatti.addEventListener('submit', function(event) {
-    event.preventDefault(); 
+formContatti.addEventListener('submit', function (event) {
+    event.preventDefault();
     alert('Richiesta inviata con successo!');
 });

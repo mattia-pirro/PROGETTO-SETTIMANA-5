@@ -365,7 +365,7 @@ h2 {
 }
 
 .servizi-grid .servizi-container:nth-of-type(2) {
-  animation-delay: 16ms;
+  animation-delay: 160ms;
 }
 
 .servizi-grid .servizi-container:nth-of-type(3) {
@@ -481,7 +481,7 @@ h2 {
 .team-info h5 {
   margin: 0;
   font-weight: bold;
-  color: hsl(150, 60%, 30%)
+  color: hsl(150, 60%, 30%);
 }
 
 .team-info p {
@@ -491,67 +491,12 @@ h2 {
 
 /* Recensioni */
 
-@keyframes carosello {
-  0% {
-    opacity: 0%;
-    filter: grayscale(100%);
-    right: -100%;
-  }
-
-  12.5% {
-    opacity: 25%;
-    filter: grayscale(75%);
-    right: -62.5%;
-  }
-
-  25% {
-    opacity: 50%;
-    filter: grayscale(50%);
-    right: -25%;
-  }
-
-  37.5% {
-    opacity: 75%;
-    filter: grayscale(25%);
-    right: 12.5%;
-  }
-
-  50% {
-    opacity: 100%;
-    filter: grayscale(0%);
-    right: 50%;
-  }
-
-  62.5% {
-    opacity: 75%;
-    filter: grayscale(25%);
-    right: 87.5%;
-  }
-
-  75% {
-    opacity: 50%;
-    filter: grayscale(50%);
-    right: 125%;
-  }
-
-  87.5% {
-    opacity: 25%;
-    filter: grayscale(75%);
-    right: 162.5%;
-  }
-
-  100% {
-    opacity: 0%;
-    filter: grayscale(100%);
-    right: 200%;
-  }
-}
-
 #recensioni {
   overflow: hidden;
 }
 
 .recensioni-grid {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -608,14 +553,6 @@ h2 {
   animation-play-state: paused;
 }
 
-.recensioni-grid.paused .recensioni-container {
-  animation-play-state: paused;
-}
-
-.recensioni-grid.running .recensioni-container {
-  animation-play-state: running;
-}
-
 .recensioni-container .recensioni-user-image {
   display: flex;
   flex-direction: column;
@@ -629,10 +566,6 @@ h2 {
   border-radius: 50%;
   font-size: 32px;
   font-weight: bold;
-  margin: 0;
-}
-
-.team-container .recensioni-user-image {
   margin: 0;
 }
 
@@ -687,7 +620,7 @@ h2 {
   justify-content: center;
   align-items: center;
   align-content: center;
-  gap: 8px;
+  gap: 6x;
 }
 
 .title-container-footer p:nth-of-type(1) {
@@ -697,7 +630,7 @@ h2 {
 }
 
 .title-container-footer p:nth-of-type(2) {
-  font-size: 16px;
+  font-size: 14px;
   color: #aaafb7;
   margin: 0;
 }
@@ -825,7 +758,7 @@ h2 {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
   background-color: #ffffff;
   padding: 16px 48px 24px 32px;
   border-radius: 8px;
@@ -922,7 +855,7 @@ form button {
 }
 
 form button:hover {
-  background-color: hsl(150, 63%, 19%)
+  background-color: hsl(150, 63%, 19%);
 }
 
 .close {
@@ -984,7 +917,7 @@ form button:hover {
 
   .title-container-footer {
     align-items: flex-start;
-    max-width: 150px;
+    max-width: 105px;
     text-align: left;
   }
 
