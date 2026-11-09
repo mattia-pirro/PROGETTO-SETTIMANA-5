@@ -236,6 +236,7 @@ body.dark #nav-container .link-nav.scrolled {
   text-align: center;
   background: linear-gradient(hsl(150, 51%, 54%), hsl(150, 67%, 21%));
   color: #ffffff;
+  padding: 24px;
 }
 
 .hero h1 {
@@ -820,7 +821,7 @@ h2 {
   border: none;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   height: auto;
-  width: auto;
+  width: 60%;
 }
 
 .overlay[hidden] {
@@ -847,7 +848,7 @@ h2 {
 
 form h2 {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+  font-size: clamp(1rem, 3vw, 1.2rem);
   color: #1a1a1a;
   text-align: left;
   margin-bottom: 6px;
@@ -969,6 +970,10 @@ form button:hover {
 
 @media screen and (min-width: 768px) {
 
+  .modal {
+    width: auto;
+  }
+
   .header-content {
     flex-direction: row;
     justify-content: space-between;
@@ -1072,6 +1077,25 @@ form button:hover {
   .recensioni-info p,
   .recensioni-user-name p {
     font-size: 16px;
+  }
+}
+
+/* 375px */
+
+@media screen and (max-width: 575px) {
+
+  .modal {
+    width: 75%;
+  }
+
+  .recensioni-container {
+    width: 160px;
+    padding: 20px 30px;
+  }
+
+  .recensioni-info p,
+  .recensioni-user-name p {
+    font-size: 10px;
   }
 }
 
