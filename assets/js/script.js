@@ -9,7 +9,7 @@ const linkPreventivo = document.getElementById('link-apri-contatti');
 const close = document.getElementById('chiudi-contatti');
 const formContatti = document.getElementById('form-contatti');
 const recensioni = document.querySelectorAll('.recensioni-container');
-
+const notifica = document.querySelector('.container-notifica');
 
 btnMode.addEventListener('click', () => {
     const icon = btnMode.querySelector('i');
@@ -77,5 +77,8 @@ overlay.addEventListener('click', (event) => {
 
 formContatti.addEventListener('submit', function (event) {
     event.preventDefault();
-    alert('Richiesta inviata con successo!');
+    notifica.style.display = 'flex';
+    setTimeout(() => {
+        notifica.style.display = 'none';
+    }, 2000);
 });
