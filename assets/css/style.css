@@ -575,7 +575,7 @@ h2 {
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  padding: 20px 30px;
+  padding: 16px 36px;
   width: 225px;
   position: absolute;
   animation: carosello 36s linear infinite;
@@ -1018,6 +1018,7 @@ form button:hover {
 
   .recensioni-container {
     width: 200px;
+    padding: 20px 28px;
     animation: carosello 30s linear infinite;
   }
 
@@ -1058,6 +1059,11 @@ form button:hover {
 
   .recensioni-container {
     width: 240px;
+  }
+
+  .recensioni-info p,
+  .recensioni-user-name p {
+    font-size: 14px;
   }
 }
 
