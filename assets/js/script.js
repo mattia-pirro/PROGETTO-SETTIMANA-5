@@ -10,6 +10,11 @@ const close = document.getElementById('chiudi-contatti');
 const formContatti = document.getElementById('form-contatti');
 const recensioni = document.querySelectorAll('.recensioni-container');
 const notifica = document.querySelector('.container-notifica');
+const nome = document.getElementById('nome');
+const email = document.getElementById('email');
+const menu = document.getElementById('menu');
+const messaggio = document.getElementById('messaggio');
+
 
 btnMode.addEventListener('click', () => {
     const icon = btnMode.querySelector('i');
@@ -77,6 +82,10 @@ overlay.addEventListener('click', (event) => {
 
 formContatti.addEventListener('submit', function (event) {
     event.preventDefault();
+    nome.value = '';
+    email.value = '';
+    menu.value = 'identita-visiva';
+    messaggio.value = '';
     notifica.style.display = 'flex';
     setTimeout(() => {
         notifica.style.display = 'none';
