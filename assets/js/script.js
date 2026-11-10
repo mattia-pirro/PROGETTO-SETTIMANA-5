@@ -63,6 +63,10 @@ function chiudiContatti() {
         return;
     } else {
         overlay.classList.add('closing');
+        nome.value = '';
+        email.value = '';
+        menu.value = 'identita-visiva';
+        messaggio.value = '';
         setTimeout(() => {
             overlay.setAttribute('hidden', '');
             overlay.classList.remove('closing');
